@@ -1,0 +1,21 @@
+{
+  "name": "trab-julia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/prompt-sync": "^4.2.3",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "mysql2": "^3.11.3",
+    "prompt-sync": "^4.2.0"
+  }
+}
