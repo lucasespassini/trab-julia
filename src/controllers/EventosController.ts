@@ -1,15 +1,15 @@
-import { scan } from "../libs/scan";
 import { EventosModel } from "../models/EventosModel";
+import { prompt } from "../utils/prompt";
 
 export class EventosController {
   async inserir_evento() {
     console.log("Digite os dados para criar o evento:\n");
 
-    const descricao = scan("Descrição: ");
-    const tipo = scan("Tipo: ");
-    const data = scan("Data evento(yyyy-MM-dd): ");
-    const limite = +scan("Limite de participantes: ");
-    const duracao = scan("Duração: ");
+    const descricao = prompt("Descrição: ");
+    const tipo = prompt("Tipo: ");
+    const data = prompt("Data evento(yyyy-MM-dd): ");
+    const limite = +prompt("Limite de participantes: ");
+    const duracao = prompt("Duração: ");
 
     const novoEvento = new EventosModel({
       dataEvento: data,
@@ -27,12 +27,12 @@ export class EventosController {
 
     console.log("Digite os dados para atualizar o evento:\n");
 
-    const IDEvento = +scan("Id do evento: ");
-    const descricao = scan("Descrição: ");
-    const tipo = scan("Tipo: ");
-    const data = scan("Data evento(yyyy-MM-dd): ");
-    const limite = +scan("Limite de participantes: ");
-    const duracao = scan("Duração: ");
+    const IDEvento = +prompt("Id do evento: ");
+    const descricao = prompt("Descrição: ");
+    const tipo = prompt("Tipo: ");
+    const data = prompt("Data evento(yyyy-MM-dd): ");
+    const limite = +prompt("Limite de participantes: ");
+    const duracao = prompt("Duração: ");
 
     const novoEvento = new EventosModel({
       IDEvento: IDEvento,

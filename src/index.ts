@@ -1,18 +1,18 @@
 import { setTimeout } from "timers/promises";
 import { connectDb, disconnectDb } from "./conexion/connection";
-import { MenuController } from "./libs/menu";
-import { scan } from "./libs/scan";
+import { Menu } from "./utils/menu";
+import { prompt } from "./utils/prompt";
 
 async function main() {
   await connectDb();
 
-  const menu = new MenuController();
+  const menu = new Menu();
   let escolha = 0;
 
   while (true) {
     menu.menu_principal();
 
-    escolha = +scan("\n-> ");
+    escolha = +prompt("\n-> ");
 
     if (escolha < 1 || escolha > 5) {
       console.log("\nOpção inválida!!!\n");

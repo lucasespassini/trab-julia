@@ -1,13 +1,13 @@
-import { scan } from "../libs/scan";
 import { ParticipantesModel } from "../models/ParticipantesModel";
+import { prompt } from "../utils/prompt";
 
 export class ParticipantesController {
   async inserir_participante() {
     console.log("Digite os dados para criar o participante:\n");
 
-    const cpf = scan("CPF: ");
-    const nome = scan("Nome: ");
-    const celular = scan("Celular: ");
+    const cpf = prompt("CPF: ");
+    const nome = prompt("Nome: ");
+    const celular = prompt("Celular: ");
 
     const novoParticipante = new ParticipantesModel({
       cpf,
