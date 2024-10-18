@@ -2,10 +2,14 @@ import { readFileSync } from "fs";
 import mysql from "mysql2";
 
 const connection = mysql.createConnection({
-  host: "192.168.13.250",
+  // host: "192.168.13.250",
+  // port: 3306,
+  // user: "admin",
+  // password: "4t8zzgssx8uk2s9",
+  host: "localhost",
   port: 3306,
-  user: "admin",
-  password: "4t8zzgssx8uk2s9",
+  user: "root",
+  password: "lme040700",
   database: "SYS_EVENTO",
   multipleStatements: true,
 });
@@ -39,11 +43,8 @@ export async function connectDb() {
     "utf-8"
   );
 
-  console.log("aqui1");
   await executar_sql(createTablesSQL);
-  console.log("aqui2");
   await executar_sql(populateTablesSQL);
-  console.log("aqui3");
   await executar_sql(createTriggersSQL);
 }
 

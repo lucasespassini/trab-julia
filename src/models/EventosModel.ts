@@ -1,16 +1,15 @@
-import { readFileSync } from "fs";
 import { executar_sql } from "../conexion/connection";
 
-type EventosModelAttr = {
+interface IEventosModel {
   IDEvento?: number;
   tipoEvento: string;
   descricao: string;
   dataEvento: string;
   limiteParticipantes: number;
   duracaoEvento: string;
-};
+}
 
-export class EventosModel implements EventosModelAttr {
+export class EventosModel implements IEventosModel {
   IDEvento?: number;
   tipoEvento: string;
   descricao: string;
@@ -18,8 +17,8 @@ export class EventosModel implements EventosModelAttr {
   limiteParticipantes: number;
   duracaoEvento: string;
 
-  constructor(attr: EventosModelAttr) {
-    Object.assign(this, attr);
+  constructor(eventoModel: IEventosModel) {
+    Object.assign(this, eventoModel);
   }
 
   static async listar_db() {
@@ -54,16 +53,5 @@ export class EventosModel implements EventosModelAttr {
 
     await executar_sql(SQL);
     console.log("\nEvento editado com sucesso!!!\n");
-  }
-
-  static async relatorio_db() {
-    const relatorioSQL = readFileSync(
-      "src/sql/rel_eventos_agrupados_por_mes.sql",
-      "utf-8"
-    );
-
-    const relatorioResult = await executar_sql(relatorioSQL);
-
-    console.table(relatorioResult);
   }
 }

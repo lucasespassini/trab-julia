@@ -1,7 +1,7 @@
 import { EventosController } from "../controllers/EventosController";
 import { ParticipantesController } from "../controllers/ParticipantesController";
-import { EventosModel } from "../models/EventosModel";
-import { ParticipantesModel } from "../models/ParticipantesModel";
+import { eventosPorMes } from "../reports/eventosPorMes";
+import { participantesPorEvento } from "../reports/participantesPorEvento";
 import { prompt } from "./prompt";
 
 export class Menu {
@@ -48,12 +48,12 @@ Relatorio
 
     switch (escolha) {
       case 1:
-        await EventosModel.relatorio_db();
+        await eventosPorMes();
         prompt("\nPressione ENTER para continuar: ");
         console.clear();
         break;
       case 2:
-        await ParticipantesModel.relatorio_db();
+        await participantesPorEvento();
         prompt("\nPressione ENTER para continuar: ");
         console.clear();
         break;

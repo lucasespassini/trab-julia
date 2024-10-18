@@ -26,8 +26,8 @@ async function main() {
       break;
     }
 
-    menu.menu_secundario(escolha);
-    await setTimeout(2000);
+    await menu.menu_secundario(escolha);
+    await setTimeout(200);
   }
 }
 
