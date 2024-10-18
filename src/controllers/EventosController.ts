@@ -20,6 +20,7 @@ export class EventosController {
     });
 
     await EventosModel.criar_db(novoEvento);
+    await EventosModel.listar_db();
   }
 
   async atualizar_evento() {
@@ -44,7 +45,12 @@ export class EventosController {
     });
 
     await EventosModel.atualizar_db(novoEvento);
+    await EventosModel.listar_db();
   }
 
-  async remover_evento() {}
+  async remover_evento() {
+    await EventosModel.listar_db();
+
+    console.log("Digite o ID do evento para excluir:\n");
+  }
 }
