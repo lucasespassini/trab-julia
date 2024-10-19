@@ -40,7 +40,7 @@ export class ParticipantesModel implements IParticipantesModel {
                                     CELULAR_PARTICIPANTE = "${participante.celular}"
                                   WHERE PARTICIPANTE_CPF = ${participante.cpf}`;
 
-    const updateCompromissoSQL = `UPDATE PARTICIPANTE_EVENTO SET EVENTO_ID = ${participante.IDEvento}, 
+    const updateCompromissoSQL = `UPDATE PARTICIPANTE_EVENTO SET EVENTO_ID = ${participante.IDEvento}
                                   WHERE PARTICIPANTE_CPF = "${participante.cpf}"`;
 
     await executar_sql(updateParticipanteSQL);

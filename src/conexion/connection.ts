@@ -2,15 +2,10 @@ import { readFileSync } from "fs";
 import mysql from "mysql2";
 
 const connection = mysql.createConnection({
-  // host: "192.168.13.250",
-  // port: 3306,
-  // user: "admin",
-  // password: "4t8zzgssx8uk2s9",
-  host: "localhost",
+  host: "192.168.13.250",
   port: 3306,
-  user: "root",
-  password: "lme040700",
-  database: "SYS_EVENTO",
+  user: "admin",
+  password: "4t8zzgssx8uk2s9",
   multipleStatements: true,
 });
 
