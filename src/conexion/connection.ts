@@ -10,14 +10,13 @@ const connection = mysql.createConnection({
   multipleStatements: true,
 });
 
-export async function executar_sql<T = any>(sql: string): Promise<T> {
+export async function executar_sql(sql: string): Promise<any> {
   return await new Promise((resolve, reject) => {
     connection.query(sql, (error, result) => {
       if (error) {
-        console.log("Erro ao executar sql:", error.message);
         return reject(error);
       } else {
-        return resolve(result as T);
+        return resolve(result);
       }
     });
   });
@@ -34,9 +33,11 @@ export async function connectDb() {
     "sql/insert_tables_sistema_eventos.sql",
     "utf-8"
   );
+  const createTriggerSQL = readFileSync("sql/trigger.sql", "utf-8");
 
   await executar_sql(createTablesSQL);
   await executar_sql(populateTablesSQL);
+  await executar_sql(createTriggerSQL);
 }
 
 export function disconnectDb() {
