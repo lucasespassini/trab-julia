@@ -21,16 +21,16 @@ Menu Principal
   async menu_secundario(tipo: number) {
     switch (tipo) {
       case 1:
-        this.menu_relatorios();
+        await this.menu_relatorios();
         break;
       case 2:
-        this.menu_entidades("criar");
+        await this.menu_entidades("criar");
         break;
       case 3:
-        this.menu_entidades("atualizar");
+        await this.menu_entidades("atualizar");
         break;
       case 4:
-        this.menu_entidades("deletar");
+        await this.menu_entidades("deletar");
         break;
       case 5:
         break;
