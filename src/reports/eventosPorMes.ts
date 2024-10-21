@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { executar_sql } from "../conexion/connection";
+import { executar_sql } from "../database/connection";
 
 export async function eventosPorMes() {
   const relatorioSQL = readFileSync(

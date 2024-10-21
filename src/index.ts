@@ -1,5 +1,5 @@
 import { setTimeout } from "timers/promises";
-import { connectDb, disconnectDb } from "./conexion/connection";
+import { connectDb, disconnectDb } from "./database/connection";
 import { Menu } from "./utils/menu";
 import { prompt } from "./utils/prompt";
 

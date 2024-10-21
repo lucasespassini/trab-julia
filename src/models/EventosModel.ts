@@ -1,4 +1,4 @@
-import { executar_sql } from "../conexion/connection";
+import { executar_sql } from "../database/connection";
 
 interface IEventosModel {
   IDEvento?: number;
