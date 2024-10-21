@@ -3,12 +3,15 @@ import { ParticipantesController } from "../controllers/ParticipantesController"
 import { eventosPorMes } from "../reports/eventosPorMes";
 import { participantesPorEvento } from "../reports/participantesPorEvento";
 import { prompt } from "./prompt";
+import { splashScreen } from "./splashScreen";
 
 export class Menu {
   private readonly eventosController = new EventosController();
   private readonly participantesController = new ParticipantesController();
 
-  menu_principal() {
+  async menu_principal() {
+    await splashScreen();
+
     console.log(`
 Menu Principal
   1 - Relatórios

@@ -5,18 +5,19 @@ const connection = mysql.createConnection({
   host: "192.168.13.250",
   port: 3306,
   user: "admin",
+  database: "SYS_EVENTO",
   password: "4t8zzgssx8uk2s9",
   multipleStatements: true,
 });
 
-export async function executar_sql(sql: string) {
+export async function executar_sql<T = any>(sql: string): Promise<T> {
   return await new Promise((resolve, reject) => {
     connection.query(sql, (error, result) => {
       if (error) {
         console.log("Erro ao executar sql:", error.message);
         return reject(error);
       } else {
-        return resolve(result);
+        return resolve(result as T);
       }
     });
   });

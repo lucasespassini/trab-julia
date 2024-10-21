@@ -52,5 +52,16 @@ export class EventosController {
     await EventosModel.listar_db();
 
     console.log("Digite o ID do evento para excluir:\n");
+
+    const IDEvento = +prompt("ID: ");
+
+    const compromissos = await EventosModel.listar_compromisso(IDEvento);
+
+    if (compromissos.length > 0) {
+      return console.log("Existe participantes para esse evento!!!");
+    }
+
+    await EventosModel.deletar_db(IDEvento);
+    await EventosModel.listar_db();
   }
 }

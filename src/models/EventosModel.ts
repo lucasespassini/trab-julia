@@ -27,6 +27,18 @@ export class EventosModel implements IEventosModel {
     console.table(eventos);
   }
 
+  static async listar_compromisso(IDEvento: number) {
+    const SQL = `SELECT * FROM participante_evento WHERE EVENTO_ID = ${IDEvento}`;
+    const eventos = await executar_sql(SQL);
+    return eventos;
+  }
+
+  static async count() {
+    const SQL = "SELECT COUNT(*) as qtdEventos FROM EVENTOS";
+    const eventos = await executar_sql(SQL);
+    return eventos[0].qtdEventos;
+  }
+
   static async criar_db(evento: EventosModel) {
     const SQL = `INSERT INTO 
                   EVENTOS(TIPO_EVENTO, DESCRICAO_EVENTO, DATA_EVENTO, LIMITE_PARTICIPANTES, DURACAO_EVENTO) 
@@ -52,7 +64,7 @@ export class EventosModel implements IEventosModel {
   }
 
   static async deletar_db(IDEvento: number) {
-    const SQL = `DELETE FROM EVENTOS WHERE ${IDEvento}`;
+    const SQL = `DELETE FROM EVENTOS WHERE EVENTO_ID = ${IDEvento}`;
 
     await executar_sql(SQL);
   }

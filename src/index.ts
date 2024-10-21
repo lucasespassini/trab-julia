@@ -10,7 +10,7 @@ async function main() {
   let escolha = 0;
 
   while (true) {
-    menu.menu_principal();
+    await menu.menu_principal();
 
     escolha = +prompt("\n-> ");
 
